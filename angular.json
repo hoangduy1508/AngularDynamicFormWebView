@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AngularDynamicFormWebView"
+    }
+  },
+  "defaultProject": "AngularDynamicFormWebView",
+  "cli": {
+    "analytics": false
+  }
 }
