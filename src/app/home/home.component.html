@@ -1,0 +1,59 @@
+<div class="container">
+
+  <div class="form-content">
+    <form [formGroup]="dynamicForm">
+      <ng-container *ngFor="let question of dynamicFormData[0].Questions">
+        <label for="exampleInputEmail1">{{question.Title.vi}}<span *ngIf="question.IsRequired">(*)</span></label>
+        <ng-container [ngSwitch]="question.Control.Type">
+          <div class="form-group" *ngSwitchCase="'Input'">
+            <input type="text" [formControlName]="question.ValueId" class="form-control" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group" *ngSwitchCase="'Paragraph'">
+            <textarea rows="4" cols="50" [formControlName]="question.ValueId" class="form-control"
+              aria-describedby="emailHelp"></textarea>
+          </div>
+          <div class="form-group" *ngSwitchCase="'ComboBox'">
+            <select class="form-control" [formControlName]="question.ValueId">
+              <option *ngFor="let option of question.Options" [value]="option.vi">
+                {{option.vi}}
+              </option>
+
+            </select>
+
+          </div>
+        </ng-container>
+
+      </ng-container>
+      <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+    </form>
+  </div>
+  <!-- <div class="form-content">
+    <form [formGroup]="formGroup">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="text" formControlName="name" class="form-control" aria-describedby="emailHelp"
+          placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Gender</label>
+        <select class="form-control" formControlName="gender">
+          <option value="male">Nam</option>
+          <option value="female">Nữ</option>
+
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Age</label>
+        <input type="text" class="form-control" formControlName="age" placeholder="Password">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+    </form>
+  </div> -->
+
+</div>
