@@ -99,6 +99,7 @@ const dynamicFormData: XFormSectionModel[] = [
 })
 export class HomeComponent implements OnInit {
 
+
   formGroup: FormGroup;
 
   dynamicFormData: XFormSectionModel[] = dynamicFormData;
